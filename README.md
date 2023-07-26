@@ -42,14 +42,14 @@ SHOW MASTER STATUS;
 
 ```
 
-![screen1](https://github.com/KorolkovDenis/)
+![screen1](https://github.com/KorolkovDenis/12.6-ReplicationSQL1/blob/main/screenshots/screen1.jpg)
 
 На SLAVE:
 ```
 CHANGE MASTER TO MASTER_HOST='192.168.1.160',MASTER_USER='replication', MASTER_PASSWORD='MysqlPass', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS= 841;
 ```
 
-![screen2](https://github.com/KorolkovDenis/)
+![screen2](https://github.com/KorolkovDenis/12.6-ReplicationSQL1/blob/main/screenshots/screen2.jpg)
 
 ```
 START SLAVE;
@@ -57,11 +57,11 @@ SHOW SLAVE STATUS\G
 SHOW DATABASES;
 ```
 
-![screen3](https://github.com/KorolkovDenis/)
+![screen3](https://github.com/KorolkovDenis/12.6-ReplicationSQL1/blob/main/screenshots/screen3.jpg)
 
 Создаем на Мастере БД test_1. БД test_1 сразу реплицируется на SLAVE БД.
 
-![screen4](https://github.com/KorolkovDenis/)
+![screen4](https://github.com/KorolkovDenis/12.6-ReplicationSQL1/blob/main/screenshots/screen4.jpg)
 
 ## Дополнительные задания (со звёздочкой*)
 Эти задания дополнительные, то есть не обязательные к выполнению, и никак не повлияют на получение вами зачёта по этому домашнему заданию. Вы можете их выполнить, если хотите глубже шире разобраться в материале.
@@ -81,12 +81,12 @@ CHANGE MASTER TO MASTER_HOST='192.168.1.173',MASTER_USER='replication', MASTER_P
 START SLAVE;
 ```
 
-![screen5](https://github.com/KorolkovDenis/)
+![screen5](https://github.com/KorolkovDenis/12.6-ReplicationSQL1/blob/main/screenshots/screen5.jpg)
 ```
 SHOW SLAVE STATUS\G
 ```
-![screen6](https://github.com/KorolkovDenis/)
-![screen7](https://github.com/KorolkovDenis/)
+![screen6](https://github.com/KorolkovDenis/12.6-ReplicationSQL1/blob/main/screenshots/screen6.jpg)
+![screen7](https://github.com/KorolkovDenis/12.6-ReplicationSQL1/blob/main/screenshots/screen7.jpg)
 
 
 [Cсылка на google docs по «Репликация и масштабирование. Часть 1»]([https://docs.google.com/document/d/](https://docs.google.com/document/d/1Yxn2qyVMpI7dgJHVL_QKWgGjBdyFqmlq/edit?usp=drive_link&ouid=104113173630640462528&rtpof=true&sd=true)https://docs.google.com/document/d/1Yxn2qyVMpI7dgJHVL_QKWgGjBdyFqmlq/edit?usp=drive_link&ouid=104113173630640462528&rtpof=true&sd=true)
