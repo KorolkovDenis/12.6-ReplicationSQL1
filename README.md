@@ -21,10 +21,47 @@ Slave сервер постоянно копирует все изменения
 
 Ответ:
 
+```
+apt-get install mysql-server mysql-client
+mkdir -p /var/log/mysql
+chown -R mysql: /var/lib/mysql
+chown -R mysql: /var/log/mysql
+mysqld –initialize
+systemctl start mysql
+nano /etc/mysql/mysql.conf.d/mysqld.cnf 
+добавляю:
+bind-address = 192.168.1.160
+server-id = 1
+log_bin = /var/log/mysql/mysql-bin.log
+service mysql restart
+mysql -u root -p
+FLUSH PRIVILEGES;
+CREATE USER 'replication'@'%' IDENTIFIED WITH mysql_native_password BY 'MysqlPass';
+GRANT REPLICATION SLAVE ON *.* TO 'replication'@'%';
+SHOW MASTER STATUS;
+
+```
+
 ![screen1](https://github.com/KorolkovDenis/)
-![screen1](https://github.com/KorolkovDenis/)
-![screen1](https://github.com/KorolkovDenis/)
-![screen1](https://github.com/KorolkovDenis/)
+
+На SLAVE:
+```
+CHANGE MASTER TO MASTER_HOST='192.168.1.160',MASTER_USER='replication', MASTER_PASSWORD='MysqlPass', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS= 841;
+```
+
+![screen2](https://github.com/KorolkovDenis/)
+
+```
+START SLAVE;
+SHOW SLAVE STATUS\G
+SHOW DATABASES;
+```
+
+![screen3](https://github.com/KorolkovDenis/)
+
+Создаем на Мастере БД test_1. БД test_1 сразу реплицируется на SLAVE БД.
+
+![screen4](https://github.com/KorolkovDenis/)
 
 ## Дополнительные задания (со звёздочкой*)
 Эти задания дополнительные, то есть не обязательные к выполнению, и никак не повлияют на получение вами зачёта по этому домашнему заданию. Вы можете их выполнить, если хотите глубже шире разобраться в материале.
@@ -38,9 +75,18 @@ Slave сервер постоянно копирует все изменения
 
 Ответ:
 
-![screen1](https://github.com/KorolkovDenis/)
-![screen1](https://github.com/KorolkovDenis/)
-![screen1](https://github.com/KorolkovDenis/)
+```
+Теперь на нашем MASTER БД вводим:
+CHANGE MASTER TO MASTER_HOST='192.168.1.173',MASTER_USER='replication', MASTER_PASSWORD='MysqlPass', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS= 1039;
+START SLAVE;
+```
+
+![screen5](https://github.com/KorolkovDenis/)
+```
+SHOW SLAVE STATUS\G
+```
+![screen6](https://github.com/KorolkovDenis/)
+![screen7](https://github.com/KorolkovDenis/)
 
 
 [Cсылка на google docs по «Репликация и масштабирование. Часть 1»]([https://docs.google.com/document/d/](https://docs.google.com/document/d/1Yxn2qyVMpI7dgJHVL_QKWgGjBdyFqmlq/edit?usp=drive_link&ouid=104113173630640462528&rtpof=true&sd=true)https://docs.google.com/document/d/1Yxn2qyVMpI7dgJHVL_QKWgGjBdyFqmlq/edit?usp=drive_link&ouid=104113173630640462528&rtpof=true&sd=true)
