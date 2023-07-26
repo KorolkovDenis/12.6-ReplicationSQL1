@@ -89,4 +89,4 @@ SHOW SLAVE STATUS\G
 ![screen7](https://github.com/KorolkovDenis/12.6-ReplicationSQL1/blob/main/screenshots/screen7.jpg)
 
 
-[Cсылка на google docs по «Репликация и масштабирование. Часть 1»]([https://docs.google.com/document/d/](https://docs.google.com/document/d/1Yxn2qyVMpI7dgJHVL_QKWgGjBdyFqmlq/edit?usp=drive_link&ouid=104113173630640462528&rtpof=true&sd=true)https://docs.google.com/document/d/1Yxn2qyVMpI7dgJHVL_QKWgGjBdyFqmlq/edit?usp=drive_link&ouid=104113173630640462528&rtpof=true&sd=true)
+[Cсылка на google docs по «Репликация и масштабирование. Часть 1»](https://docs.google.com/document/d/1Yxn2qyVMpI7dgJHVL_QKWgGjBdyFqmlq/edit?usp=sharing&ouid=104113173630640462528&rtpof=true&sd=true)
